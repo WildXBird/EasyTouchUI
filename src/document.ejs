@@ -1,0 +1,138 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="manifest" href="/manifest.json">
+<meta name="apple-mobile-web-app-title" content="轻松使用">
+
+<!-- iPhone Retina Icons -->
+<link rel="apple-touch-icon" sizes="192x192" href="/icon/logo192.png">
+
+<!-- iPad Retina Icons -->
+<link rel="apple-touch-icon" sizes="512x512" href="/icon/logo512.png">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <title>恭喜，站点创建成功！</title>
+    <style>
+    body,html {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top:0;
+}
+
+        .container {
+            width: 60%;
+            margin: 10% auto 0;
+            background-color: #f0f0f0;
+            padding: 2% 5%;
+            border-radius: 10px
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+            ul li {
+                line-height: 2.3
+            }
+
+        a {
+            color: #20a53a
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 onclick="document.location.reload()">RELOAD</h1>
+      
+        <h1>语音合成演示</h1>
+<textarea id="textToSpeak" rows="4" cols="50">
+今天是2024年02月03日，星期六。而气温方面，今天相对于昨天有所升高 预计今天的最高气温为7度，比昨天高1度。预计今天的最低气温为5度，比昨天高1度。今天的空气没有污染。今天的天气状况为中雨，记得随身携带雨伞哦。
+</textarea>
+<br><br>
+<button onclick="speakText()">朗读文本</button>
+<br><br>
+<div id="result"></div>
+    </div>
+    <script src="https://unpkg.com/vconsole@latest/dist/vconsole.min.js"></script>
+<script>
+  // VConsole 默认会挂载到 `window.VConsole` 上
+  var vConsole = new window.VConsole();
+</script>
+    <script>
+    function speakText() {
+    var textToSpeak = document.getElementById('textToSpeak').value;
+    var msg = new SpeechSynthesisUtterance();
+    msg.text = textToSpeak;
+    msg.lang = 'zh-CN';
+    
+    // 设置语速（1.0 是正常语速，可以调整）
+    msg.rate = 0.5;
+    
+    // 设置音调（0.0 是正常音调，可以调整）
+    msg.pitch = 1.0;
+    
+    // 设置音量（范围从 0 到 1）
+    msg.volume = 1.0;
+    // 添加事件监听器
+    msg.onstart = function(event) {
+        document.getElementById('result').innerHTML = '开始朗读文本...';
+    };
+    
+    msg.onend = function(event) {
+        document.getElementById('result').innerHTML = '朗读文本结束。';
+    };
+    window.speechSynthesis.speak(msg);
+}
+    </script>
+    <script>
+// ES6及之后的特性检测示例
+// 检测Promise
+function supportsPromise() {
+  return 'Promise' in window;
+}
+// 检测Array.prototype.includes
+function supportsArrayIncludes() {
+  return 'includes' in Array.prototype;
+}
+// 检测async/await
+function supportsAsyncAwait() {
+  try {
+    new Function('async function test() { await null; }');
+    return true;
+  } catch (error) {
+    return false;
+  }
+}
+// 检测Proxy
+function supportsProxy() {
+  return 'Proxy' in window;
+}
+// 检测Set和Map
+function supportsSetAndMap() {
+  return 'Set' in window && 'Map' in window;
+}
+// 输出检测结果
+document.write('speechSynthesis 支持: ' + ('speechSynthesis' in window) +"<br/>");
+document.write('Array.prototype.includes 支持: ' + supportsArrayIncludes()+"<br/>");
+document.write('async/await 支持: ' + supportsAsyncAwait()+"<br/>");
+document.write('Proxy 支持: ' + supportsProxy()+"<br/>");
+document.write('Set 和 Map 支持: ' + supportsSetAndMap()+"<br/>");
+
+
+
+document.body.addEventListener('touchmove', function(e) {
+		if (e._isScroller) return;
+		e.preventDefault();//阻止默认的处理方式(阻止下拉滑动的效果)
+	}, {
+		passive: false  
+	});//passive 参数不能省略，用来兼容ios和android
+ 
+</script>
+
+</body>
+</html>

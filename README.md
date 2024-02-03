@@ -1,93 +1,101 @@
-# TranslateGLM
+[Русский](./README.ru-RU.md) | English | [简体中文](./README.zh-CN.md)
 
-TranslateGLM 是一个基于 ChatGLM2-6B 模型微调的中英文翻译器，可以实现高质量的双向翻译。
+# Ant Design Pro
+[![CircleCI Status](https://circleci.com/gh/ant-design/ant-design-pro.svg?style=svg)](https://circleci.com/gh/ant-design/ant-design-pro/)
+[![Dependencies](https://img.shields.io/david/ant-design/ant-design-pro.svg)](https://david-dm.org/ant-design/ant-design-pro)
+[![DevDependencies](https://img.shields.io/david/dev/ant-design/ant-design-pro.svg)](https://david-dm.org/ant-design/ant-design-pro#info=devDependencies&view=list)
+[![Gitter](https://badges.gitter.im/ant-design/ant-design-pro.svg)](https://gitter.im/ant-design/ant-design-pro?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
-使用265万个样本进行了 [P-Tuning v2](https://github.com/THUDM/P-tuning-v2) 的微调，微调的样本的例子可以参考 [validation_file.txt](https://github.com/WildXBird/TranslateGLM/blob/main/validation_file.txt) 中的内容。
+An out-of-box UI solution for enterprise applications as a React boilerplate.
 
-微调过后的模型，在可以很好的充当翻译器的同时仍然可以正常的进行聊天对话。
+![](https://gw.alipayobjects.com/zos/rmsportal/xEdBqwSzvoSapmnSnYjU.png)
 
-ChatGLM2-6B 是一个开源的、支持中英问答的对话语言模型，基于 General Language Model (GLM) 架构，具有约 60 亿参数。
+- Preview: http://preview.pro.ant.design
+- Home Page: http://pro.ant.design
+- Documentation: http://pro.ant.design/docs/getting-started
+- ChangeLog: http://pro.ant.design/docs/changelog
+- FAQ: http://pro.ant.design/docs/faq
+- Mirror Site in China: http://ant-design-pro.gitee.io
 
-![图片](https://github.com/WildXBird/TranslateGLM/blob/main/0.png?raw=true)
+## Translation Recruitment :loudspeaker:
 
-![图片](https://github.com/WildXBird/TranslateGLM/blob/main/1.png?raw=true)
+We need your help: https://github.com/ant-design/ant-design-pro/issues/120
 
-## 功能
+## Features
 
-- 支持中文和英文之间的双向翻译
-- 支持OpenAI格式的API和网页端的交互式翻译
-- 支持调整输出结果随机度
-- 支持翻译结果和原文对照查看
-- 正常对话（仅限使用OpenAI格式的API）
+- :gem: **Neat Design**: Follow [Ant Design specification](http://ant.design/)
+- :triangular_ruler: **Common Templates**: Typical templates for enterprise applications
+- :rocket: **State of The Art Development**: Newest development stack of React/dva/antd
+- :iphone: **Responsive**: Designed for variable screen sizes
+- :art: **Theming**: Customizable theme with simple config
+- :globe_with_meridians: **International**: Built-in i18n solution
+- :gear: **Best Practices**: Solid workflow to make your code healthy
+- :1234: **Mock development**: Easy to use mock development solution
+- :white_check_mark: **UI Test**: Fly safely with unit and e2e tests
 
-## 安装
-
-要运行本项目，你需要安装以下软件依赖：
-
-```
-yarn
-cd ./glm
-pip install -r requirements.txt
-pip install rouge_chinese nltk jieba datasets
-```
-
-## 使用
-
-### 启动翻译器
-
-你可以通过如下命令启动翻译器的OpenAI格式的API：
+## Templates
 
 ```
-python ./glm/openai_api.py
+- Dashboard
+  - Analytic
+  - Monitor
+  - Workspace
+- Form
+  - Basic Form
+  - Step Form
+  - Advanced From
+- List
+  - Standard Table
+  - Standard List
+  - Card List
+  - Search List (Project/Applications/Article)
+- Profile
+  - Simple Profile
+  - Advanced Profile
+- Result
+  - Success
+  - Failed
+- Exception
+  - 403
+  - 404
+  - 500
+- User
+  - Login
+  - Register
+  - Register Result
 ```
 
-你可以通过如下命令启动翻译器的前端UI：
-*启动UI前必须先启动上面的API*
+## Usage
 
-```
-yarn start
-```
-
-在浏览器中访问 http://localhost:3000/ ，然后输入你想要翻译的文本即可自动翻译。
-
-### 正常的进行聊天对话
-
-你可以通过如下命令启动传统的web demo对话，但只能进行普通对话：
-
-```
-python ./glm/web_demo.py
+```bash
+$ git clone https://github.com/ant-design/ant-design-pro.git --depth=1
+$ cd ant-design-pro
+$ npm install
+$ npm start         # visit http://localhost:8000
 ```
 
-你可以通过如上面的“OpenAI格式的API”进行正常对话，使用方式和普通的调用方法无异：
+Or you can use the command tool: [ant-design-pro-cli](https://github.com/ant-design/ant-design-pro-cli)
 
+```bash
+$ npm install ant-design-pro-cli -g
+$ mkdir pro-demo && cd pro-demo
+$ pro new
 ```
-python ./glm/openai_api.py
-```
 
-## 翻译UI
+More instructions at [documentation](http://pro.ant.design/docs/getting-started).
 
-翻译UI暂时不支持指定输入语言，输入的语言的自动判断是中文还是英文，然后自动翻译成另一种语言。
+## Browsers support
 
-翻译UI可以指定翻译结果的随机性，分为**保守**、**平衡**、**灵活**和**发散**。
+Modern browsers and IE11.
 
-分别代表着temperature从低(保守)到高(创意)，对于较复杂的语法，更高的temperature更能准确的翻译，但也可能导致他误解某些含义。
+| [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="IE / Edge" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>IE / Edge | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Firefox | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Chrome | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png" alt="Safari" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Safari | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/opera/opera_48x48.png" alt="Opera" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Opera |
+| --------- | --------- | --------- | --------- | --------- |
+| IE11, Edge| last 2 versions| last 2 versions| last 2 versions| last 2 versions
 
-把鼠标悬停在翻译结果上，可以查看翻译的原文以及原文在输入中的位置。
+## Contributing
 
-## 更新
+Any type of contribution is welcome, here are some examples of how you may contribute to this project:
 
-**2023-8-2 (alpha-2)**
-
-1. 加入了短篇新闻的对照翻译样本进行了重新训练。
-2. 经过简单测试发现在丢失信息方面有了显著的改善，即原文中的某些描述或者修饰在翻译的结果中会被无视，在句子稍长的情况下尤为明显。
-3. 在“发散”下，可能会把翻译当成对话进行回答的问题（例如某个句子以：结尾），经过简单测试发现有了显著的改善。
-4. 考虑到 “3”的问题改善了，在随机性选项改成了4个。
-
-
-## 已知问题
-
-1. (非常常见)中英文数字表达转换存在错误
-2. (罕见)会出现英文中文互相穿插（当某些词汇llm无法理解时会出现）
-3. (罕见)会出现完全无关的翻译结果
-4. (常见)原文中的某段描述或者某些修饰在翻译的结果中会被无视
-5. (常见)格式复杂时无法正确翻译
+- Use Ant Design Pro in your daily work.
+- Submit [issues](http://github.com/ant-design/ant-design-pro/issues) to report bugs or ask questions.
+- Propose [pull requests](http://github.com/ant-design/ant-design-pro/pulls) to improve our code.

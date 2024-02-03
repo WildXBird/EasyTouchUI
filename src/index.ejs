@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="apple-mobile-web-app-title" content="轻松使用">
+
+  <!-- iPhone Retina Icons -->
+  <link rel="apple-touch-icon" sizes="192x192" href="/icon/logo192.png">
+
+  <!-- iPad Retina Icons -->
+  <link rel="apple-touch-icon" sizes="512x512" href="/icon/logo512.png">
+
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="theme-color" content="#1890ff">
+  <title>Ant Design Pro</title>
+  <link rel="icon" href="/favicon.png" type="image/x-icon">
+  <script>
+    // 添加事件监听器来捕获error事件
+    window.addEventListener('error', function (event) {
+      // 使用alert显示错误信息
+      alert("出现错误: " + event.message + "\n源: " + event.filename + "\n行: " + event.lineno + "\n列: " + event.colno);
+
+      // 阻止默认的错误处理（例如，显示浏览器的错误提示）
+      event.preventDefault();
+    });
+    // 添加事件监听器来捕获error事件
+    window.addEventListener('click', function (event) {
+      new SpeechSynthesisUtterance('')
+    });
+  </script>
+
+  <script src="https://cdn.bootcss.com/rollbar.js/2.4.0/rollbar.min.js"></script>
+  <script src="https://gw.alipayobjects.com/os/antv/assets/data-set/0.8.7/data-set.min.js"></script>
+
+</head>
+
+<body>
+  <script src="https://unpkg.com/vconsole@1.1.0/dist/vconsole.min.js"></script>
+
+  <div id="root"></div>
+</body>
+
+</html>
