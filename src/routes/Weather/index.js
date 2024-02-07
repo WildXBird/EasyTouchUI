@@ -38,10 +38,10 @@ export default class AdvancedProfile extends PureComponent {
               </div>
             </div>
             <div style={{ display: "block" }}>
-              {this.state.temperatureHigh}
+              {this.state.temperatureLow}
               <span style={{ fontSize: 64, }}>{"度"}</span>
               <span style={{ color:  this.state.dark?"rgba(255,255,255,0.5)":"rgba(0,0,0,0.5)"  }}>{"-"}</span>
-              {this.state.temperatureLow}
+              {this.state.temperatureHigh}
               <span style={{ fontSize: 64, }}>{"度"}</span>
             </div>
           </div>
@@ -51,6 +51,9 @@ export default class AdvancedProfile extends PureComponent {
     );
   }
   async componentDidMount() {
+    setTimeout(() => {
+      this.backHome()
+    }, 30000);
     Speech.cancel()
     const data = await this.getWeather()
     const weather = data.weather

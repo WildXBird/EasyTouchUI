@@ -43,21 +43,29 @@ class AppCards extends PureComponent {
   }
   timer = 0
   openWaitTime = 10000
-  colors = ['burlywood', 'gray', 'blue', 'green', 'yellow', 'purple', 'orange', 'pink', 'brown', 'black', 'white', 'cyan', 'magenta', 'teal']
+  colors = [ '#2e2e2e','burlywood', 'blue', 'green', 'yellow', 'purple', 'orange', 'pink', 'brown', 'black', 'white', 'cyan', 'magenta', 'teal']
 
 
   render() {
     const arr = [
       { title: "告诉我天气", icon: "/icon/weather.svg", description: "告诉我今天的天气", link: "/weather" },
+      { title: "农历", icon: "/icon/Google_Calendar.png", description: "查看今天的农历", link: "/calendar" },
+      { title: "告诉我这是什么东西", icon: "https://picsum.photos/200/300", description: "告诉我这是什么东西", link: "/thingsScan" },
+      { title: "告诉我这是什么东西", icon: "https://picsum.photos/200/300", description: "告诉我这是什么东西", link: "/thingsScan" },
+      { title: "告诉我这是什么东西", icon: "https://picsum.photos/200/300", description: "告诉我这是什么东西", link: "/thingsScan" },
+      { title: "告诉我这是什么东西", icon: "https://picsum.photos/200/300", description: "告诉我这是什么东西", link: "/thingsScan" },
+      { title: "告诉我这是什么东西", icon: "https://picsum.photos/200/300", description: "告诉我这是什么东西", link: "/thingsScan" },
+      { title: "告诉我这是什么东西", icon: "https://picsum.photos/200/300", description: "告诉我这是什么东西", link: "/thingsScan" },
+      { title: "告诉我这是什么东西", icon: "https://picsum.photos/200/300", description: "告诉我这是什么东西", link: "/thingsScan" },
       { title: "告诉我这是什么东西", icon: "https://picsum.photos/200/300", description: "告诉我这是什么东西", link: "/thingsScan" },
     ]
     return Array.from(arr).map((item, index) => {
-      return <div style={{ position: "relative", display: "inline-block", margin: 12, verticalAlign: "bottom" }}>
+      return <div style={{ position: "relative", display: "inline-block", margin: 12, verticalAlign: "bottom", }}>
         <Card
           onTouchStart={(event) => { this.onTouchStart(event, index, item) }}
           onTouchEnd={(event) => { this.onTouchEnd(event, index, item) }}
           onClick={(event) => { this.onTouchEnd(event, index, item) }}
-          title={item.title}
+          title={<span style={{color:"white"}}>{item.title}</span>}
           style={{
             width: 300, height: 300,
             background: this.colors[index],

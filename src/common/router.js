@@ -109,6 +109,11 @@ export const getRouterData = app => {
         import('../routes/Weather')
       ),
     },
+  '/calendar': {
+      component: dynamicWrapper(app, [ ], () =>
+        import('../routes/Calendar')
+      ),
+    },
 
   '/thingsScan': {
       component: dynamicWrapper(app, [ ], () =>
